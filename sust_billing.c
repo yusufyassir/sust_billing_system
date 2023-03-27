@@ -30,7 +30,7 @@ void main(){
     printf("            3:: Exit     \n");
     scanf("%d", &i);
     if (i == 3){
-        printf("thank you for using our program");//prints messagge before closing program
+        printf("\n***thank you for using our program***\n\n");//prints messagge before closing program
         exit(0);
     }
     system("cls");
