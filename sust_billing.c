@@ -23,20 +23,19 @@ int j, i;
 FILE *st, *th;
 void addrec();
 void main(){
-    printf("**********wellcome to SUST billing system**********\n");
-    printf("        please enter acount type        \n");
-    printf("        1:: students acount     \n");
-    printf("        2:: teachers acount     \n");
+    printf("**********wellcome to SUST billing system**********\n\n\n");
+    printf("            please enter acount type        \n");
+    printf("            1:: students acount     \n");
+    printf("            2:: teachers acount     \n");
+    printf("            3:: Exit     \n");
     scanf("%d", &i);
+    if (i == 3){
+        printf("thank you for using our program");//prints messagge before closing program
+        exit(0);
+    }
     system("cls");
     addrec();
-  /*  char state = 'y';
-    while (state == 'y' || state == 'Y' ){
-        addrec();
-        printf("enter ( y / Y ) to continue and (q) to exit: ");
-        fflush(stdin);
-        state = getc(stdin);
-    }*/
+
 }
 
 void addrec(){
