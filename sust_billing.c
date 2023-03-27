@@ -30,10 +30,19 @@ void main(){
     printf("            3:: Exit     \n");
     scanf("%d", &i);
     if (i == 3){
-        printf("\n***thank you for using our program***\n\n");//prints messagge before closing program
+        printf("\n***thank you for using our program***\n");//prints messagge before closing program
         exit(0);
     }
     system("cls");
+    printf("                please enter your choice\n");
+    printf("                1:: to add recored\n");
+    printf("                2:: to exit\n");
+    scanf("%d", &j);
+    system("cls");
+     if (j == 2){
+        printf("\n***thank you for using our program***\n");//prints messagge before closing program
+        exit(0);
+    }
     addrec();
 
 }
@@ -49,7 +58,7 @@ void addrec(){
             scanf("%s", st1.name);
             printf("enter students class: ");
             scanf("%d", &st1.Class);
-            printf("enter date in m\\d format: ");
+            printf("enter date mm dd");
             scanf("%d %d", &st1.dt.mm, &st1.dt.dd);
             printf("enter fees: ");
             scanf("%d", &st1.fee);
