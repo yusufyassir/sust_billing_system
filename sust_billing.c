@@ -23,10 +23,10 @@ int j, i;
 FILE *st, *th;
 void addrec();
 void main(){
-    printf("**********wellcome to SUST billing system**********\n\n\n");
-    printf("            please enter acount type        \n");
-    printf("            1:: students acount     \n");
-    printf("            2:: teachers acount     \n");
+    printf("**********  School billing system	**********\n\n\n");
+    printf("            Please enter account type        \n");
+    printf("            1:: students account     \n");
+    printf("            2:: teachers account     \n");
     printf("            3:: Exit     \n");
     scanf("%d", &i);
     if (i == 3){
