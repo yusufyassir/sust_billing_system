@@ -4,24 +4,43 @@
 #include<windows.h>
 
 struct dat {
+/**
+ * struct dat - Stores date
+ * @mm: month
+ * @dd: day
+ */
     int mm;
     int dd;
 };
 struct student{
+    /**
+ * struct student - store student info
+ * @name: students name
+ * @class: students class
+ * @dat: payment date
+ * @fee: paid fee
+ */
     struct dat dt;
     char name[30];
     int Class;
     int fee;
 }st1;
 struct teacher{
+      /**
+ * struct teacher - store student info
+ * @name: teacher name
+ * @class: teachers class
+ * @dat: payment date
+ * @fee: paid salary
+ */
     struct dat dt;
     char name[30];
     int Class;
     int sal;
 }tc1;
-int j, i;
-FILE *st, *th;
-void addrec();
+int j, i; // for account type and opp selection
+FILE *st, *th;//file handlers
+void addrec();// for adding records
 void main(){
     printf("**********wellcome to SUST billing system**********\n\n\n");
     printf("            please enter acount type        \n");
@@ -48,21 +67,26 @@ void main(){
 }
 
 void addrec(){
+/**
+ * addrec - adds enteries
+ * no argements passed
+ * Description - takes information from user and stores it in a file
+ * Return - void
+ */
     if(i == 1){
         char state = 'y';
         printf("**********adding records**********\n");
-        st = fopen("student.txt", "w+");
-        fprintf(st, "Name   Class   Date    Paid fees\n");
+        st = fopen("student.bin", "wb+");
         while (state == 'y' || state == 'Y' ){
             printf("enter students name: ");
             scanf("%s", st1.name);
             printf("enter students class: ");
             scanf("%d", &st1.Class);
-            printf("enter date mm dd");
+            printf("enter date mm dd ");
             scanf("%d %d", &st1.dt.mm, &st1.dt.dd);
             printf("enter fees: ");
             scanf("%d", &st1.fee);
-            fprintf(st, "%s    %d     %d/%d     $%d\n", st1.name, st1.Class, st1.dt.mm, st1.dt.dd, st1.fee);
+            fwrite(&st1,sizeof(st1),1,st);
             printf("enter ( y / Y ) to continue and (q) to exit: ");
             fflush(stdin);
             state = getc(stdin);
@@ -72,8 +96,7 @@ void addrec(){
     if(i == 2){
         char state = 'y';
         printf("**********adding records**********\n");
-        st = fopen("teacher.txt", "w+");
-        fprintf(st, "Name   Class   Date    Paid fees\n");
+        th = fopen("teacher.bin", "wb+");
         while (state == 'y' || state == 'Y' ){
             printf("enter teachers name: ");
             scanf("%s", tc1.name);
@@ -83,11 +106,11 @@ void addrec(){
             scanf("%d %d", &tc1.dt.mm, &tc1.dt.dd);
             printf("enter salary: ");
             scanf("%d", &tc1.sal);
-            fprintf(st, "%s    %d     %d/%d     $%d\n", tc1.name, tc1.Class, tc1.dt.mm, tc1.dt.dd, tc1.sal);
+            fwrite(&tc1,sizeof(tc1),1,th);
             printf("enter ( y / Y ) to continue and (q) to exit: ");
             fflush(stdin);
             state = getc(stdin);
         }
-        fclose(st);
+        fclose(th);
     }
 }
