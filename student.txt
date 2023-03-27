@@ -1,2 +1,3 @@
 Name   Class   Date    Paid fees
-ahmed    2     2/34     $34444444
+yusuf    4     2/1     $2344
+ahmed    3     2/34     $2000

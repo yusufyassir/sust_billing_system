@@ -1,2 +1,3 @@
-Name   Class   Date    Paid Salary
-ysuuf    4     2/20     $4500
+Name   Class   Date    Paid fees
+moe    3     20/23     $2000
+abd    2     2/21     $1500

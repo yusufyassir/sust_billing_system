@@ -29,50 +29,57 @@ void main(){
     printf("        2:: teachers acount     \n");
     scanf("%d", &i);
     system("cls");
-addrec();
-
-//if(i == 1){
-//    printf("enter students name: ");
-//    scanf("%s", st1.name);
-//    printf("enter students class: ");
-//    scanf("%d", &st1.Class);
-//    printf("enter date in m\\d format: ");
-//    scanf("%d %d", &st1.dt.mm, &st1.dt.dd);
-//    printf("enter fees: ");
-//    scanf("%d", &st1.fee);
-//    st = fopen("student.txt", "w");
-//    fprintf(st, "Name   Class   Date    Paid fees\n");
-//    fprintf(st, "%s    %d     %d/%d     $%d", st1.name, st1.Class, st1.dt.mm, st1.dt.dd, st1.fee);
- //   fclose(st);
-//}
+    addrec();
+  /*  char state = 'y';
+    while (state == 'y' || state == 'Y' ){
+        addrec();
+        printf("enter ( y / Y ) to continue and (q) to exit: ");
+        fflush(stdin);
+        state = getc(stdin);
+    }*/
 }
+
 void addrec(){
     if(i == 1){
-        printf("enter students name: ");
-        scanf("%s", st1.name);
-        printf("enter students class: ");
-        scanf("%d", &st1.Class);
-        printf("enter date in m\\d format: ");
-        scanf("%d %d", &st1.dt.mm, &st1.dt.dd);
-        printf("enter fees: ");
-        scanf("%d", &st1.fee);
-        st = fopen("student.txt", "w");
+        char state = 'y';
+        printf("**********adding records**********\n");
+        st = fopen("student.txt", "w+");
         fprintf(st, "Name   Class   Date    Paid fees\n");
-        fprintf(st, "%s    %d     %d/%d     $%d", st1.name, st1.Class, st1.dt.mm, st1.dt.dd, st1.fee);
+        while (state == 'y' || state == 'Y' ){
+            printf("enter students name: ");
+            scanf("%s", st1.name);
+            printf("enter students class: ");
+            scanf("%d", &st1.Class);
+            printf("enter date in m\\d format: ");
+            scanf("%d %d", &st1.dt.mm, &st1.dt.dd);
+            printf("enter fees: ");
+            scanf("%d", &st1.fee);
+            fprintf(st, "%s    %d     %d/%d     $%d\n", st1.name, st1.Class, st1.dt.mm, st1.dt.dd, st1.fee);
+            printf("enter ( y / Y ) to continue and (q) to exit: ");
+            fflush(stdin);
+            state = getc(stdin);
+        }
         fclose(st);
     }
     if(i == 2){
-        printf("enter teachers name: ");
-        scanf("%s", tc1.name);
-        printf("enter teachers class: ");
-        scanf("%d", &tc1.Class);
-        printf("enter date in m\\d format: ");
-        scanf("%d %d", &tc1.dt.mm, &tc1.dt.dd);
-        printf("enter salary: ");
-        scanf("%d", &tc1.sal);
-        th = fopen("teacher.txt", "w");
-        fprintf(th, "Name   Class   Date    Paid Salary\n");
-        fprintf(th, "%s    %d     %d/%d     $%d", tc1.name, tc1.Class, tc1.dt.mm, tc1.dt.dd, tc1.sal);
-        fclose(th);
+        char state = 'y';
+        printf("**********adding records**********\n");
+        st = fopen("teacher.txt", "w+");
+        fprintf(st, "Name   Class   Date    Paid fees\n");
+        while (state == 'y' || state == 'Y' ){
+            printf("enter teachers name: ");
+            scanf("%s", tc1.name);
+            printf("enter students class: ");
+            scanf("%d", &tc1.Class);
+            printf("enter date in m\\d format: ");
+            scanf("%d %d", &tc1.dt.mm, &tc1.dt.dd);
+            printf("enter salary: ");
+            scanf("%d", &tc1.sal);
+            fprintf(st, "%s    %d     %d/%d     $%d\n", tc1.name, tc1.Class, tc1.dt.mm, tc1.dt.dd, tc1.sal);
+            printf("enter ( y / Y ) to continue and (q) to exit: ");
+            fflush(stdin);
+            state = getc(stdin);
+        }
+        fclose(st);
     }
 }
