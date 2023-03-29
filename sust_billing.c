@@ -357,6 +357,9 @@ int chkdat(int mnt,int dnt)
     else
         return (mnt);
 }
+
+
+
 int check_class()
 {
     int mntttt,monsss;
