@@ -1,3 +1,16 @@
+/*
+    sust school billing system
+    enters new payments from students and salary to staff
+    also can delete or search for payments
+    calculate fees and salary
+
+    created 2023
+    by yusuf yassir, amro tarig, yasmin mohammed, ghalia alsadig,
+    ahmed abdallah, anwar moatasm, mona alshiekh
+
+    this code was made for an university project
+    Sudan University of Science and Technology
+*/
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
