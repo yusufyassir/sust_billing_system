@@ -44,6 +44,7 @@ void addrec();// for adding records
 void delrec(int j); //for deleting records
 void fees(); //to see fees
 void salary(int mm); //to see salary
+void search_rec();
 int chkdat(int mnt,int dnt); //to check date
 int check_class(); //to check class
 
@@ -61,14 +62,23 @@ void main(){
     system("cls");
     printf("                please enter your choice\n");
     printf("                1:: to add recored\n");
-    printf("                2:: to exit\n");
+    printf("                2:: to search recored\n");
+    printf("                3:: to delete recored\n");
+    printf("                4:: to exit\n");
     scanf("%d", &j);
     system("cls");
-     if (j == 2){
+     if (j == 4){
         printf("\n***thank you for using our program***\n");//prints messagge before closing program
         exit(0);
-    }
-    addrec();
+    }else if(j==1){
+        addrec();
+    } else if(j==2) {
+        search_rec();
+    } else
+        delrec();
+
+
+
 
 }
 
@@ -358,6 +368,60 @@ int chkdat(int mnt,int dnt)
         return (mnt);
 }
 
+void search_rec(){
+
+    /**
+    * Takes number or class from the user and search it in the file
+    * @cs:for class
+    * @name:for the user naem
+    */
+int cs,search_class,choice;
+char state='y';
+system("cls");
+printf("\t\t********** Searching for record \t\t**********\n");
+while((state=='y')||(state=='Y')){
+    printf("\t\t1:: Search using class\n");
+    printf("\t\t2:: Search using name\n");
+    printf("\t\t3:: Exit\n");
+    printf("\t\t Enter your choice\n");
+    fflush(stdin);
+    scanf("%d", &choice);
+    if(i==1){
+
+            switch(choice) {
+                case 3:
+                    exit(0);
+                    break;
+                case 1:
+                    printf("Enter student class \n");
+                    scanf("%d",&search_class);
+                    st = fopen("student.bin","rb+");
+                    if(st==NULL){
+                        printf("Error opening the file");
+                        break;
+                    }
+                    fseek(st,0,SEEK_SET);
+                    while(fread(&cs,sizeof(int),1,st)){
+                        if(cs == search_class){
+                            printf("Record found!\n");
+                            break;
+                        }
+                        printf("Not found!\n");
+                        fclose(st);
+                        break;
+                    }
+                     printf("enter ( y / Y ) to continue and (q) to exit: ");
+                    fflush(stdin);
+                    state = getc(stdin);
+            }
+    }
+
+}
+
+
+
+
+}
 
 
 int check_class()
